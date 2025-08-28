@@ -11,7 +11,7 @@ random_path() {
   local depth=$((RANDOM % 4 + 1)) # 1 to 4 levels
   local path="$ROOT_DIR"
   for ((i=1; i<=depth; i++)); do
-    path="$path/dir_$((RANDOM % 1000))"
+    path="$path/dir_$((RANDOM % 100))"
   done
   echo "$path"
 }
@@ -23,8 +23,8 @@ while [ $count -lt $TOTAL_FILES ]; do
   dir=$(random_path)
   mkdir -p "$dir"
   
-  # Random file size between 1KB and 4KB
-  size=$(( (RANDOM % 4 + 1) * 1024 ))
+  # Random file size between 256B and 1KB 
+  size=$(( (RANDOM % 4 + 1) * 256 ))
   
   # Unique filename
   file="$dir/file_${count}.bin"
