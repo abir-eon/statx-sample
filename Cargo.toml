@@ -2,6 +2,15 @@
 name = "statx-sample"
 version = "0.1.0"
 edition = "2024"
+default-run = "walker"
+
+[[bin]]
+name = "walker"
+path = "src/bin/walker.rs"
+
+[[bin]]
+name = "xstat"
+path = "src/bin/xstat.rs"
 
 [dependencies]
 rustix = { version = "0.38", features = ["fs"] }
